@@ -13,7 +13,7 @@ package ru.avalon.java.dev.j10.labs.models;
  */
 public class Person {
 
-    /*
+     /*
      * TODO(Студент): Создайте класс Address.
      *
      * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.

@@ -3,13 +3,9 @@ package ru.avalon.java.dev.j10.labs;
 import ru.avalon.java.dev.j10.labs.models.Person;
 
 public class Main {
-
-    Main() {
-
-        /*
-         * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
-         */
-
+    
+    public static void main(String[] args) {
+       
         Person ivanov = null;
         Person smith = null;
 
