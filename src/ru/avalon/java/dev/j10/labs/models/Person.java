@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import java.util.Date;
+
 /**
  * Представление о человеке.
  * <p>
@@ -13,7 +15,10 @@ package ru.avalon.java.dev.j10.labs.models;
  */
 public class Person {
 
-     /*
+    private Passport passport;
+
+
+    /*
      * TODO(Студент): Создайте класс Address.
      *
      * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
@@ -47,7 +52,7 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public String getFullName() {
-        /*
+         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
         return null;
