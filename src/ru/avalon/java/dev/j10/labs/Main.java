@@ -1,51 +1,25 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.labs.models.Passport;
 import ru.avalon.java.dev.j10.labs.models.Person;
 
+import java.util.Date;
+
 public class Main {
-    
+
     public static void main(String[] args) {
-       
-        Person ivanov = null;
-        Person smith = null;
 
-        /*
-         * TODO(Студент): Создайте экземпляры класса 'Person'
-         *
-         * 1. Проинициализируейте переменную 'ivanov', так,
-         *    чтобы она адресовала объект типа 'Person'
-         *    описывающий человека по имени 'Иванов Иван Иванович'.
-         *
-         * 2. Проинициализируейте переменную 'smith', так,
-         *    чтобы она адресовала объект типа 'Person'
-         *    описывающий человека по имени 'John Edvard Smith'.
-         */
+        Person ivanov = new Person(new Passport(1111, 1111111, "Иван", "Иванов", "Иванович", new Date(1990, 3, 3), new Date(2010, 3, 3), "ТП1"), "C-Пб");
+        Person smith = new Person(new Passport(2222, 2222222, "John", "Smith", new Date(1990, 4, 4), new Date(2010, 4, 4), "police office", "Edvard"), "Seattle");
 
-        /*
-         * TODO(Студент): Создайте несколько строковых переменных:
-         *
-         * 1. Строковую переменную, содержащую полное имя
-         *    человека, описанного объектом, адресованным
-         *    переменной 'ivanov'.
-         *
-         * 2. Строковую переменную, содержащую полное имя
-         *    человека, описанного объектом, адресованным
-         *    переменной 'smith'.
-         *
-         * 3. Строковую переменную, содержащую адрес проживания
-         *    человека, описанного объектом, адресованным
-         *    переменной 'ivanov'.
-         *
-         * 4. Строковую переменную, содержащую адрес проживания
-         *    человека, описанного объектом, адресованным
-         *    переменной 'smith'.
-         */
+        String ivanovFullName = ivanov.getFullName();
+        String smithFullName = smith.getFullName();
+        String ivanovAddress = ivanov.getAddress();
+        String smithAddress = smith.getAddress();
 
-        /*
-         * TODO(Студент): Выведите в консоль значения созданных строковых переменных:
-         *
-         * Значение каждой переменной должно быть выведено на
-         * отдельной строке.
-         */
+        System.out.println(ivanovFullName);
+        System.out.println(smithFullName);
+        System.out.println(ivanovAddress);
+        System.out.println(smithAddress);
     }
 }

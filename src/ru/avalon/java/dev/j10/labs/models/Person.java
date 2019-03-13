@@ -1,38 +1,32 @@
 package ru.avalon.java.dev.j10.labs.models;
 
-import java.util.Date;
-
 /**
  * Представление о человеке.
  * <p>
  * С точки зрения задания человек представляется как сущность,
  * наделённая:
  * <ol>
- *     <li>именем;
- *     <li>паспортными данными;
- *     <li>пропиской по месту жительства.
+ * <li>именем;
+ * <li>паспортными данными;
+ * <li>пропиской по месту жительства.
  * </ol>
  */
 public class Person {
 
     private Passport passport;
 
+    public Person(Passport passport, String residentsAdress) {
+        setPassport(passport);
+        setResidentsAddress(residentsAdress);
+    }
 
-    /*
-     * TODO(Студент): Создайте класс Address.
-     *
-     * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
-     *
-     * 2. Создайте класс, видимый из пакета. Подумайте о том
-     *    Какое имя должен иметь класс, если он объявленн в этом
-     *    файле.
-     *
-     * 3. Подумайте над тем, какие переменные должены быть
-     *    определены в классе.
-     *
-     * 4. Подумайте над тем, какие методы должны быть объявлены
-     *    в классе.
-     */
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+
+    public void setResidentsAddress(String residentsAdress) {
+        this.passport.setResidentsAddress(residentsAdress);
+    }
 
     /**
      * Возврвщает полное имя человека.
@@ -52,10 +46,17 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public String getFullName() {
-         /*
-         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
-         */
-        return null;
+        String name = this.passport.getName();
+        String surname = this.passport.getSurname();
+        String middleName = this.passport.getMiddleName();
+        String secondName = this.passport.getSecondName();
+        if (middleName != null) {
+            return name + ' ' + surname + ' ' + middleName;
+        } else if (secondName != null) {
+            return name + ' ' + secondName.charAt(0) + '.' + ' ' + surname;
+        } else {
+            return name + ' ' + surname;
+        }
     }
 
     /**
@@ -67,9 +68,6 @@ public class Person {
      * @return адрес регистрации в виде строки.
      */
     public String getAddress() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
-         */
-        return null;
+        return passport.getResidentsAddress();
     }
 }
