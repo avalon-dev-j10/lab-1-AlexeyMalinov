@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о человеке.
  * <p>
@@ -13,21 +15,25 @@ package ru.avalon.java.dev.j10.labs.models;
  */
 public class Person {
 
-    /*
-     * TODO(Студент): Создайте класс Address.
-     *
-     * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
-     *
-     * 2. Создайте класс, видимый из пакета. Подумайте о том
-     *    Какое имя должен иметь класс, если он объявленн в этом
-     *    файле.
-     *
-     * 3. Подумайте над тем, какие переменные должены быть
-     *    определены в классе.
-     *
-     * 4. Подумайте над тем, какие методы должны быть объявлены
-     *    в классе.
-     */
+    private Passport passport;
+    private Address address;
+
+    public Person(Passport passport, Address address) {
+        this.passport = passport;
+        this.address = address;
+    }
+
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     /**
      * Возврвщает полное имя человека.
@@ -47,10 +53,13 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public String getFullName() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
-         */
-        return null;
+        if (this.passport.middleName != null) {
+            return this.passport.name + ' ' + this.passport.surname + ' ' + this.passport.middleName;
+        } else if (this.passport.secondName != null) {
+            return this.passport.name + ' ' + this.passport.secondName.charAt(0) + '.' + ' ' + this.passport.surname;
+        } else {
+            return this.passport.name + ' ' + this.passport.surname;
+        }
     }
 
     /**
@@ -62,9 +71,6 @@ public class Person {
      * @return адрес регистрации в виде строки.
      */
     public String getAddress() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
-         */
-        return null;
+        return address.toString();
     }
 }

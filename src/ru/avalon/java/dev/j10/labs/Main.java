@@ -1,55 +1,51 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+import ru.avalon.java.dev.j10.labs.models.Passport;
 import ru.avalon.java.dev.j10.labs.models.Person;
+
+import java.time.LocalDate;
 
 public class Main {
 
-    Main() {
+    public static void main(String[] args) {
 
-        /*
-         * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
-         */
 
-        Person ivanov = null;
-        Person smith = null;
+        Address addressIvanov = new Address();
+        addressIvanov.setCountry("RF");
+        addressIvanov.setCity("S-Pb");
+        addressIvanov.setPostcode(11111111);
+        Passport passportIvanov = new Passport(
+                1111111,
+                "Иван",
+                "Иванов",
+                LocalDate.of(1990, 3, 3),
+                LocalDate.of(2010, 3, 3),
+                "ТП1",
+                "Иванович");
+        Person ivanov = new Person(passportIvanov,addressIvanov);
 
-        /*
-         * TODO(Студент): Создайте экземпляры класса 'Person'
-         *
-         * 1. Проинициализируейте переменную 'ivanov', так,
-         *    чтобы она адресовала объект типа 'Person'
-         *    описывающий человека по имени 'Иванов Иван Иванович'.
-         *
-         * 2. Проинициализируейте переменную 'smith', так,
-         *    чтобы она адресовала объект типа 'Person'
-         *    описывающий человека по имени 'John Edvard Smith'.
-         */
+        Address addressSmith = new Address();
+        addressSmith.setCountry("USA");
+        addressSmith.setCity("Seattle");
+        Passport passportSmith = new Passport(
+                2222222,
+                "John",
+                "Smith",
+                "Edvard",
+                LocalDate.of(1990, 4, 4),
+                LocalDate.of(2010, 4, 4),
+                "police office");
+        Person smith = new Person(passportSmith,addressSmith);
 
-        /*
-         * TODO(Студент): Создайте несколько строковых переменных:
-         *
-         * 1. Строковую переменную, содержащую полное имя
-         *    человека, описанного объектом, адресованным
-         *    переменной 'ivanov'.
-         *
-         * 2. Строковую переменную, содержащую полное имя
-         *    человека, описанного объектом, адресованным
-         *    переменной 'smith'.
-         *
-         * 3. Строковую переменную, содержащую адрес проживания
-         *    человека, описанного объектом, адресованным
-         *    переменной 'ivanov'.
-         *
-         * 4. Строковую переменную, содержащую адрес проживания
-         *    человека, описанного объектом, адресованным
-         *    переменной 'smith'.
-         */
+        String ivanovFullName = ivanov.getFullName();
+        String smithFullName = smith.getFullName();
+        String ivanovAddress = ivanov.getAddress();
+        String smithAddress = smith.getAddress();
 
-        /*
-         * TODO(Студент): Выведите в консоль значения созданных строковых переменных:
-         *
-         * Значение каждой переменной должно быть выведено на
-         * отдельной строке.
-         */
+        System.out.println(ivanovFullName);
+        System.out.println(smithFullName);
+        System.out.println(ivanovAddress);
+        System.out.println(smithAddress);
     }
 }
