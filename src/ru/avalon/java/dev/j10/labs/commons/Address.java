@@ -21,14 +21,14 @@ package ru.avalon.java.dev.j10.labs.commons;
  * </ol>
  */
 public class Address {
-    private int postcode;
-    private String country;
-    private String region;
-    private String city;
-    private String district;
-    private String street;
-    private String house;
-    private String apartment;
+    public final int postcode;
+    public final String country;
+    public final String region;
+    public final String city;
+    public final String district;
+    public final String street;
+    public final String house;
+    public final String apartment;
 
     /**
      * Конструктор класса с почтовым индексом
