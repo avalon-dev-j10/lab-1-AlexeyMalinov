@@ -1,9 +1,14 @@
 package ru.avalon.java.dev.j10.labs.commons;
 
 /**
- * Представление о Адресе
- * Адрес может включать
+ * Представление о Адресе.
  * <p>
+ * Адрес в данном представление - это некоторая точка на карте.
+ * Изменение значений полей объекта, например город или улица,
+ * по смыслу является равноценным созданию нового адреса.
+ * В связи с этим поля класса имеют модификатор final.
+ * <p>
+ * Адрес может включать
  * <ol>
  * <li>почтовый индекс;
  * <li>страна;
@@ -25,10 +30,18 @@ public class Address {
     private String house;
     private String apartment;
 
-    public Address() {
-
-    }
-
+    /**
+     * Конструктор класса с почтовым индексом
+     *
+     * @param postcode
+     * @param country
+     * @param region
+     * @param city
+     * @param district
+     * @param street
+     * @param house
+     * @param apartment
+     */
     public Address(int postcode,
                    String country,
                    String region,
@@ -47,74 +60,20 @@ public class Address {
         this.apartment = apartment;
     }
 
-    public int getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(int postcode) {
-        this.postcode = postcode;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getHouse() {
-        return house;
-    }
-
-    public void setHouse(String house) {
-        this.house = house;
-    }
-
-    public String getApartment() {
-        return apartment;
-    }
-
-    public void setApartment(String apartment) {
-        this.apartment = apartment;
+    public Address(String country,
+                   String region,
+                   String city,
+                   String district,
+                   String street,
+                   String house,
+                   String apartment) {
+        this(0, country, region, city, district, street, house, apartment);
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append((postcode != 0) ? postcode+", ": "");
+        stringBuilder.append((postcode != 0) ? postcode + ", " : "");
         stringBuilder.append((country != null) ? country + ", " : "");
         stringBuilder.append((region != null) ? region + ", " : "");
         stringBuilder.append((city != null) ? city + ", " : "");

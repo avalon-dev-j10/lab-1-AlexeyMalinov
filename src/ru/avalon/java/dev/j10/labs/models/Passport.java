@@ -5,6 +5,11 @@ import java.time.LocalDate;
 /**
  * Представление о паспортных данных человека.
  * <p>
+ * Passport в целом представление о реальном документе.
+ * Некоторые паспортные данные невозможно изменить в документе не заменив сам документ,
+ * к таким св-вам относятся имя, номер, серия, дата выдачи и т.д.
+ * В связи с этим данные атрибуты класса Passport имеют модификатор final
+ * <p>
  * Паспортные данные должны включать:
  * <ol>
  * <li> серию и номер документа;
@@ -75,7 +80,7 @@ public class Passport {
                     LocalDate birthday,
                     LocalDate issueDate,
                     String department) {
-        this(serialNum,name,surname,null,secondName,birthday,issueDate,department);
+        this(serialNum, name, surname, null, secondName, birthday, issueDate, department);
     }
 
     /**
@@ -94,11 +99,12 @@ public class Passport {
                     LocalDate birthday,
                     LocalDate issueDate,
                     String department) {
-        this(serialNum,name,surname,null,null,birthday,issueDate,department);
+        this(serialNum, name, surname, null, null, birthday, issueDate, department);
     }
 
     /**
      * Конструктор в случаи отсутствия второго имени (secondName)
+     *
      * @param serialNum
      * @param name
      * @param surname
@@ -114,6 +120,6 @@ public class Passport {
                     LocalDate issueDate,
                     String department,
                     String middleName) {
-        this(serialNum,name,surname,middleName,null,birthday,issueDate,department);
+        this(serialNum, name, surname, middleName, null, birthday, issueDate, department);
     }
 }
