@@ -1,33 +1,45 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о человеке.
+ * <p>
+ * Человек может поменять паспорт и адрес регистрации,
+ * соответственно для данных полей в классе,
+ * созданы открытые методы setter.
+ * Для получения значения атрибутов объекта класса,
+ * созданы открытые методы getter.
  * <p>
  * С точки зрения задания человек представляется как сущность,
  * наделённая:
  * <ol>
- *     <li>именем;
- *     <li>паспортными данными;
- *     <li>пропиской по месту жительства.
+ * <li>именем;
+ * <li>паспортными данными;
+ * <li>пропиской по месту жительства.
  * </ol>
  */
 public class Person {
 
-    /*
-     * TODO(Студент): Создайте класс Address.
-     *
-     * 1. Добавте файл в пакет ru.avalon.java.dev.j10.labs.commons.
-     *
-     * 2. Создайте класс, видимый из пакета. Подумайте о том
-     *    Какое имя должен иметь класс, если он объявленн в этом
-     *    файле.
-     *
-     * 3. Подумайте над тем, какие переменные должены быть
-     *    определены в классе.
-     *
-     * 4. Подумайте над тем, какие методы должны быть объявлены
-     *    в классе.
-     */
+    private Passport passport;
+    private Address registration;
+
+    public Person(Passport passport, Address registration) {
+        this.passport = passport;
+        this.registration = registration;
+    }
+
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+
+    public void setAddress(Address registration) {
+        this.registration = registration;
+    }
 
     /**
      * Возврвщает полное имя человека.
@@ -47,10 +59,17 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public String getFullName() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
-         */
-        return null;
+        String middleName = passport.getMiddleName();
+        String name = passport.getName();
+        String surname = passport.getSurname();
+        String secondName = passport.getSecondName();
+        if (middleName != null) {
+            return name + ' ' + surname + ' ' + middleName;
+        } else if (secondName != null) {
+            return name + ' ' + secondName.charAt(0) + '.' + ' ' + surname;
+        } else {
+            return name + ' ' + surname;
+        }
     }
 
     /**
@@ -62,9 +81,6 @@ public class Person {
      * @return адрес регистрации в виде строки.
      */
     public String getAddress() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
-         */
-        return null;
+        return registration.toString();
     }
 }
