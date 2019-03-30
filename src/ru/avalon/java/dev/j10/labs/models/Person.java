@@ -22,11 +22,11 @@ import ru.avalon.java.dev.j10.labs.commons.Address;
 public class Person {
 
     private Passport passport;
-    private Address address;
+    private Address registration;
 
-    public Person(Passport passport, Address address) {
+    public Person(Passport passport, Address registration) {
         this.passport = passport;
-        this.address = address;
+        this.registration = registration;
     }
 
     public Passport getPassport() {
@@ -37,8 +37,8 @@ public class Person {
         this.passport = passport;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(Address registration) {
+        this.registration = registration;
     }
 
     /**
@@ -59,12 +59,16 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public String getFullName() {
-        if (this.passport.middleName != null) {
-            return this.passport.name + ' ' + this.passport.surname + ' ' + this.passport.middleName;
-        } else if (this.passport.secondName != null) {
-            return this.passport.name + ' ' + this.passport.secondName.charAt(0) + '.' + ' ' + this.passport.surname;
+        String middleName = passport.getMiddleName();
+        String name = passport.getName();
+        String surname = passport.getSurname();
+        String secondName = passport.getSecondName();
+        if (middleName != null) {
+            return name + ' ' + surname + ' ' + middleName;
+        } else if (secondName != null) {
+            return name + ' ' + secondName.charAt(0) + '.' + ' ' + surname;
         } else {
-            return this.passport.name + ' ' + this.passport.surname;
+            return name + ' ' + surname;
         }
     }
 
@@ -77,6 +81,6 @@ public class Person {
      * @return адрес регистрации в виде строки.
      */
     public String getAddress() {
-        return address.toString();
+        return registration.toString();
     }
 }

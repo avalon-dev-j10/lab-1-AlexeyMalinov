@@ -141,5 +141,6 @@ fabric.properties
 .idea/
 *.iml
 build.xml
-
+nbproject/
+*.mf
 

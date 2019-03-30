@@ -23,14 +23,14 @@ import java.time.LocalDate;
  * </ol>
  */
 public class Passport {
-    public final int serialNum;
-    public final String name;
-    public final String surname;
-    public final String middleName;
-    public final String secondName;
-    public final LocalDate birthday;
-    public final LocalDate issueDate;
-    public final String department;
+    private final String serialNum;
+    private final String name;
+    private final String surname;
+    private final String middleName;
+    private final String secondName;
+    private final LocalDate birthday;
+    private final LocalDate issueDate;
+    private final String department;
 
     /**
      * Конструктор инициализирующий все поля класса
@@ -44,7 +44,7 @@ public class Passport {
      * @param issueDate
      * @param department
      */
-    public Passport(int serialNum,
+    public Passport(String serialNum,
                     String name,
                     String surname,
                     String middleName,
@@ -73,7 +73,7 @@ public class Passport {
      * @param issueDate
      * @param department
      */
-    public Passport(int serialNum,
+    public Passport(String serialNum,
                     String name,
                     String surname,
                     String secondName,
@@ -93,7 +93,7 @@ public class Passport {
      * @param issueDate
      * @param department
      */
-    public Passport(int serialNum,
+    public Passport(String serialNum,
                     String name,
                     String surname,
                     LocalDate birthday,
@@ -113,7 +113,7 @@ public class Passport {
      * @param department
      * @param middleName
      */
-    public Passport(int serialNum,
+    public Passport(String serialNum,
                     String name,
                     String surname,
                     LocalDate birthday,
@@ -122,4 +122,38 @@ public class Passport {
                     String middleName) {
         this(serialNum, name, surname, middleName, null, birthday, issueDate, department);
     }
+
+    public String getSerialNum() {
+        return serialNum;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public LocalDate getIssueDate() {
+        return issueDate;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+    
+    
 }

@@ -11,16 +11,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Address addressIvanov = new Address(
-                "RF",
-                null,
-                "S-Pb",
-                null,
-                null,
-                null,
-                null);
+        Address addressIvanov = new Address("RF","S-Pb");
         Passport passportIvanov = new Passport(
-                1111111,
+                "1111111",
                 "Иван",
                 "Иванов",
                 LocalDate.of(1990, 3, 3),
@@ -29,16 +22,9 @@ public class Main {
                 "Иванович");
         Person ivanov = new Person(passportIvanov, addressIvanov);
 
-        Address addressSmith = new Address(
-                "USA",
-                null,
-                "Seattle",
-                null,
-                null,
-                null,
-                null);
+        Address addressSmith = new Address("USA","Seattle");
         Passport passportSmith = new Passport(
-                2222222,
+                "2222222",
                 "John",
                 "Smith",
                 "Edvard",
